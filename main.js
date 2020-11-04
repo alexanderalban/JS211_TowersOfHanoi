@@ -41,7 +41,8 @@ const movePiece = (initialStack, finalStack) => {
 // stacked on 2
 const isLegal = (initialStack, finalStack) => {
   // Your code here
-  //************THIS SHOULD WORK WHAT IS GOING ON 
+  //************THIS SHOULD WORK WHAT IS GOING ON *********
+
   if (finalStack.length === 0 ||
     initialStack[initialStack.length - 1] < finalStack[finalStack.length - 1]) {
     console.log("TRUE");
