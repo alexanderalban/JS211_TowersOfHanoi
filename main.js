@@ -41,6 +41,7 @@ const movePiece = () => {
 
   let movingPiece = initialStack.pop();
   finalStack.push(movingPiece);
+  moveTotal++;
 };
 
 // Before you move, should you check if the move it actually allowed? Should 3 be able to be 
@@ -66,7 +67,9 @@ const isLegal = (startStack, endStack) => {
 // What is a win in Towers of Hanoi? When should this function run?
 const checkForWin = () => {
   // Your code here
-  if (stacks["b"].length === 4 || stacks["c"].length === 4) {
+  if (moveTotal === 10) {
+    console.log("Out of moves! Try again");
+  } else if (stacks["b"].length === 4 || stacks["c"].length === 4) {
     console.log("You win!")
     return true;
   } else {
