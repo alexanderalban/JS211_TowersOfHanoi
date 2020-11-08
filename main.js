@@ -29,53 +29,39 @@ const printStacks = () => {
   console.log("c: " + stacks.c);
 };
 
+let initialStack;
+let finalStack;
+let moveTotal = 0;
+
 // Next, what do you think this function should do?
-const movePiece = (initialStack, finalStack) => {
+
+const movePiece = () => {
   // Your code here
   // console.log(initialStack, finalStack);
+
   let movingPiece = initialStack.pop();
   finalStack.push(movingPiece);
 };
 
 // Before you move, should you check if the move it actually allowed? Should 3 be able to be 
 // stacked on 2
-// const isLegal = (initialStack, finalStack) => {
-// Your code here
-//************THIS SHOULD WORK WHAT IS GOING ON *********
+const isLegal = (startStack, endStack) => {
+  // Your code here
 
-//   if (finalStack.length === 0 ||
-//     initialStack[initialStack.length - 1] < finalStack[finalStack.length - 1]) {
-//     console.log("TRUE");
-//     return true;
-//   } else {
-//     console.log("FALSE");
-//     console.log(initialStack);
-//     console.log(finalStack);
-//     return false;
-//   }
-// };
+  initialStack = stacks[startStack];
+  finalStack = stacks[endStack];
 
-
-function isLegal(startStack, endStack) {
-  // if (stacks[startStack].length == 0 && stack[endStack].length == 0){
-  //   return false;
-  // }
-
-  let el1 = stacks[startStack];
-  let el2 = stacks[endStack];
-
-
-  if (el1.length - 1 > 0 && el2.length === 0) {
-    console.log(el1);
-    console.log(el2)
+  if (finalStack.length === 0 ||
+    initialStack[initialStack.length - 1] < finalStack[finalStack.length - 1]) {
+    console.log("TRUE");
     return true;
-  } else if (el1 < el2) {
-    return true
+  } else {
+    console.log("FALSE");
+    console.log(initialStack);
+    console.log(finalStack);
+    return false;
   }
-  else {
-    return false
-  }
-}
+};
 
 // What is a win in Towers of Hanoi? When should this function run?
 const checkForWin = () => {
@@ -91,14 +77,10 @@ const checkForWin = () => {
 // When is this function called? What should it do with its argument?
 const towersOfHanoi = (startStack, endStack) => {
   // Your code here
-  let initialStack = stacks[startStack];
-  let finalStack = stacks[endStack];
   checkForWin();
   if (isLegal(startStack, endStack) === true) {
-    console.log(isLegal(initialStack, finalStack));
-    movePiece(initialStack, finalStack);
+    movePiece();
   } else {
-    console.log(isLegal(initialStack, finalStack));
     return false;
   }
 };
