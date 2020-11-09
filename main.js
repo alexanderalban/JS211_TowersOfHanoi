@@ -32,6 +32,7 @@ const printStacks = () => {
 let initialStack;
 let finalStack;
 let moveTotal = 0;
+let endGame = false;
 
 // Next, what do you think this function should do?
 
@@ -67,10 +68,13 @@ const isLegal = (startStack, endStack) => {
 // What is a win in Towers of Hanoi? When should this function run?
 const checkForWin = () => {
   // Your code here
-  if (moveTotal === 10) {
-    console.log("Out of moves! Try again");
-  } else if (stacks["b"].length === 4 || stacks["c"].length === 4) {
-    console.log("You win!")
+  if (stacks["b"].length === 4 || stacks["c"].length === 4) {
+    console.log("You win!");
+    endGame = true;
+    return true
+  } else if (moveTotal > 7) {
+    console.log("Out of moves! Game Over");
+    endGame = true;
     return true;
   } else {
     return false;
@@ -133,6 +137,29 @@ if (typeof describe === 'function') {
       assert.equal(checkForWin(), true);
       stacks = { a: [1], b: [4, 3, 2], c: [] };
       assert.equal(checkForWin(), false);
+    });
+  });
+  ///********Additional Tests, As per instructions */
+  describe('#checkTurnLimit', () => {
+    it('should stop after 7 moves', () => {
+      moveTotal = 8;
+      assert.equal(endGame, true);
+    });
+  });
+  describe('checkForWin on c', () => {
+    it('should detect a win on stack c, as well as b above', () => {
+      stacks = { a: [], b: [], c: [4, 3, 2, 1] };
+      assert.equal(checkForWin(), true);
+    });
+  });
+  describe('be able to occupy all stacks', () => {
+    it('should be able to have blocks on all stacks simultaneously', () => {
+      stacks = {
+        a: [4, 3, 2],
+        b: [],
+        c: [1]
+      };
+      assert.equal(isLegal('a', 'b'), true);
     });
   });
 
