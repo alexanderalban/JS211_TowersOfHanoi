@@ -1,3 +1,18 @@
+html {
+  background-image: url(./images/christian-wiediger-peace-unsplash.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  font-family: "Satisfy", cursive;
+  font-size: 40pt;
+}
+
 [data-row] {
   display: flex;
   justify-content: flex-start;
@@ -37,22 +52,25 @@
 }
 
 [data-color="blue"] {
-  height: 33px;
+  height: 34px;
   background-color: blue;
 }
 
 [data-color="green"] {
-  height: 33px;
+  height: 34px;
+  width: 50px;
   background-color: green;
 }
 
 [data-color="red"] {
-  height: 33px;
+  height: 34px;
+  width: 75px;
   background-color: red;
 }
 
 [data-color="yellow"] {
-  height: 33px;
+  height: 34px;
+  width: 100px;
   background-color: yellow;
 }
 
