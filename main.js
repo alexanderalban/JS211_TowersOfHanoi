@@ -23,6 +23,7 @@ let stacks = {
 };
 
 // Start here. What is this function doing?
+// logs what blocks are on what stack
 const printStacks = () => {
   console.log("a: " + stacks.a);
   console.log("b: " + stacks.b);
@@ -35,7 +36,7 @@ let moveTotal = 0;
 let endGame = false;
 
 // Next, what do you think this function should do?
-
+// moves blocks from one stack to another
 const movePiece = () => {
   // Your code here
   // console.log(initialStack, finalStack);
@@ -66,6 +67,7 @@ const isLegal = (startStack, endStack) => {
 };
 
 // What is a win in Towers of Hanoi? When should this function run?
+// Runs after a move, to see if the user has won the game
 const checkForWin = () => {
   // Your code here
   if (stacks["b"].length === 4 || stacks["c"].length === 4) {
