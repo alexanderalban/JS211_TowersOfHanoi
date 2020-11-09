@@ -10,11 +10,6 @@
 
 let stone = null;
 
-let stone1 = document.getElementById("1");
-let stone2 = document.getElementById("2");
-let stone3 = document.getElementById("3");
-let stone4 = document.getElementById("4");
-
 // let test = document.getElementById('4').getAttribute("data-size");
 // console.log(parseInt(test));
 
@@ -32,6 +27,10 @@ const selectRow = (row) => {
   } else {
     dropStone(row.id, stone);
     stone = null;
+    console.log("Top-Row " + topRow.childElementCount);
+    console.log("Middle-Row " + middleRow.childElementCount);
+    console.log("Bottom-Row " + bottomRow.childElementCount);
+    checkForWin();
   }
 
 }
@@ -56,6 +55,7 @@ const dropStone = (rowID, stone) => {
   const selectedRow = document.getElementById(rowID);
   if (selectedRow.lastElementChild === null) {
     console.log('Legal Move! Great Job');
+    checkForWin();
     document.getElementById(rowID).appendChild(stone)
     stone = null
   } else if (parseInt(stone.getAttribute("data-size")) >
@@ -64,6 +64,7 @@ const dropStone = (rowID, stone) => {
     dropStone(row.id, stone);
   } else {
     console.log('Legal Move! Great Job');
+    checkForWin();
     document.getElementById(rowID).appendChild(stone)
     stone = null
   }
@@ -72,3 +73,15 @@ const dropStone = (rowID, stone) => {
 
 // * Remember you can use your logic from 'main.js' to maintain the rules of the game. 
 // But how? Follow the flow of data just like falling dominoes.
+
+let topRow = document.getElementById("top-row");
+let middleRow = document.getElementById("middle-row");
+let bottomRow = document.getElementById("bottom-row");
+
+const checkForWin = () => {
+  if (middleRow.childElementCount == 4 || topRow.childElementCount == 4) {
+    console.log("You won! You did so good! Congrats");
+    alert("You won! You did so good! Congrats");
+    return true;
+  }
+};

@@ -53,25 +53,25 @@ h1 {
 
 [data-color="blue"] {
   height: 34px;
-  background-color: blue;
+  background-color: rgb(48, 194, 245);
 }
 
 [data-color="green"] {
   height: 34px;
   width: 50px;
-  background-color: green;
+  background-color: rgb(0, 134, 71);
 }
 
 [data-color="red"] {
   height: 34px;
   width: 75px;
-  background-color: red;
+  background-color: rgb(255, 1, 67);
 }
 
 [data-color="yellow"] {
   height: 34px;
   width: 100px;
-  background-color: yellow;
+  background-color: rgb(255, 255, 10);
 }
 
 #announce-game-won {
